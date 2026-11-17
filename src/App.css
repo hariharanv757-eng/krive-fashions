@@ -1,0 +1,2225 @@
+
+#root {
+  width: 100%;
+}
+
+.store {
+  width: 100%;
+  overflow: hidden;
+}
+
+.announcement {
+  padding: 11px 16px;
+  background: var(--ink);
+  color: #f6f0e5;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+
+.announcement span {
+  color: #c5aa7d;
+  padding: 0 8px;
+}
+
+.header {
+  min-height: 91px;
+  padding: 17px 6%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  letter-spacing: 2.2px;
+  line-height: 1;
+}
+
+.brand span {
+  font-size: 10px;
+  letter-spacing: 4.1px;
+}
+
+.brand small {
+  margin-top: 5px;
+  color: var(--muted);
+  font: 8px 'DM Sans', sans-serif;
+  letter-spacing: 1.3px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 2.5vw, 36px);
+}
+
+.nav a, .bag-button {
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.nav a {
+  padding: 8px 0;
+}
+
+.nav a:hover, .footer-links a:hover {
+  color: var(--gold);
+}
+
+.bag-button {
+  justify-self: end;
+  padding: 11px 0 11px 12px;
+  background: none;
+  border: 0;
+  color: var(--ink);
+}
+
+.bag-button span {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 22px;
+}
+
+.hero {
+  position: relative;
+  min-height: 590px;
+  height: min(68vw, 690px);
+  max-height: 760px;
+  display: flex;
+  align-items: center;
+  background: #65564b;
+  color: white;
+  isolation: isolate;
+}
+
+.hero-image, .hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.hero-shade {
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 23, 20, .76),
+    rgba(26, 23, 20, .48) 43%,
+    rgba(26, 23, 20, .05)
+  );
+}
+
+.hero-content {
+  width: min(690px, 75%);
+  padding: 50px 0 50px 10%;
+}
+
+.eyebrow {
+  margin: 0 0 17px;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 2.6px;
+  line-height: 1.8;
+}
+
+.hero .eyebrow {
+  color: #e5d0ab;
+}
+
+.hero h1, .intro h2, .section-heading h2,
+.brand-banner h2, .newsletter h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 650px;
+  font-size: clamp(38px, 5vw, 66px);
+  line-height: 1.16;
+  letter-spacing: -1.5px;
+  text-wrap: balance;
+}
+
+.hero-description {
+  max-width: 390px;
+  margin: 23px 0 29px;
+  color: #eee7df;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.button {
+  min-height: 48px;
+  padding: 15px 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid transparent;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  transition: background .2s, color .2s;
+}
+
+.button span {
+  font-size: 15px;
+}
+
+.button-light {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.button-light:hover {
+  background: #dfcfb8;
+}
+
+.button-dark {
+  background: var(--ink);
+  color: white;
+}
+
+.button-dark:hover {
+  background: #51483d;
+}
+
+.hero-index {
+  position: absolute;
+  bottom: 25px;
+  right: 6%;
+  color: #eee5da;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.section-wrap {
+  width: min(1200px, 88%);
+  margin-inline: auto;
+}
+
+.intro {
+  padding: 96px 20px 89px;
+  text-align: center;
+}
+
+.intro h2, .newsletter h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.28;
+}
+
+.intro > p:last-child {
+  max-width: 525px;
+  margin: 21px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+}
+
+.collection {
+  padding: 20px 0 100px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 53px);
+  letter-spacing: -.7px;
+}
+
+.section-heading h2 span {
+  color: var(--gold);
+}
+
+.collection-note {
+  margin: 0 0 9px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 27px 0 25px;
+}
+
+.filter {
+  padding: 10px 17px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: #615b51;
+  font-size: 10px;
+}
+
+.filter:hover, .filter.active {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 23px;
+}
+
+.product-card {
+  min-width: 0;
+  position: relative;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+  will-change: transform;
+}
+.product-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.08) 40%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0.08) 60%,
+    transparent 70%
+  );
+  transform: translateX(-120%) skewX(-18deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.product-card:hover::after {
+  transform: translateX(120%) skewX(-18deg);
+}
+
+.product-card:hover {
+  transform: translateY(-10px) perspective(1000px) rotateX(2deg);
+  box-shadow: 0 25px 45px rgba(70, 45, 20, 0.18);
+}
+
+.product-image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #eee8df;
+  aspect-ratio: 3 / 4;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.09) translateZ(18px);
+  filter: saturate(1.12);
+}
+
+.product-label {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  padding: 8px 9px;
+  background: rgba(250, 248, 244, .94);
+  color: var(--ink);
+  font-size: 8px;
+  letter-spacing: .8px;
+}
+
+.quick-add {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  width: calc(100% - 24px);
+  padding: 15px 8px;
+  border: 0;
+  background: rgba(250, 248, 244, .96);
+  color: var(--ink);
+  font-size: 9px;
+  letter-spacing: 1.3px;
+}
+
+.quick-add:hover {
+  background: white;
+}
+
+.product-info {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+}
+
+.product-info h3 {
+  margin: 0 0 6px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.product-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.product-info strong {
+  padding-top: 3px;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.sample-note {
+  margin: 35px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.brand-banner {
+  padding: 88px 20px;
+  background: #eae3d8;
+  text-align: center;
+}
+
+.brand-banner h2 {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.14;
+}
+
+.brand-banner > p:not(.eyebrow) {
+  margin: 19px 0 27px;
+  color: #6f665a;
+  font-size: 11px;
+}
+
+.newsletter {
+  padding: 85px 20px 90px;
+  text-align: center;
+}
+
+.newsletter > p:not(.eyebrow) {
+  margin: 17px 0 25px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.text-link {
+  display: inline-block;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--gold);
+  font-size: 9px;
+  letter-spacing: 1.3px;
+}
+
+.footer {
+  padding: 45px 20px 28px;
+  background: var(--ink);
+  color: #f7f1e8;
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.footer > p {
+  margin: 9px 0 22px;
+  color: #c3b8a8;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.footer-links a {
+  font-size: 10px;
+}
+
+.footer > small {
+  color: #aaa093;
+  font-size: 8px;
+  letter-spacing: .7px;
+}
+
+.toast {
+  position: fixed;
+  z-index: 20;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 32px);
+  padding: 15px 22px;
+  background: var(--ink);
+  color: white;
+  box-shadow: 0 5px 25px #0002;
+  font-size: 12px;
+  text-align: center;
+}
+
+.cart-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: flex-end;
+  background: #17151180;
+}
+
+.cart-panel {
+  width: min(470px, 100%);
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: var(--cream);
+}
+
+.cart-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-heading .eyebrow {
+  margin-bottom: 6px;
+}
+
+.cart-heading h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 29px;
+  font-weight: 400;
+}
+
+.close-button {
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.empty-cart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.empty-cart > span {
+  color: var(--gold);
+  font-size: 48px;
+}
+
+.empty-cart h3 {
+  margin-bottom: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.empty-cart p, .cart-summary > p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.empty-cart .button {
+  margin-top: 20px;
+}
+
+.cart-items {
+  flex: 1;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 78px 1fr auto;
+  gap: 14px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-item > img {
+  width: 78px;
+  height: 100px;
+  object-fit: cover;
+  background: #eee8df;
+}
+
+.cart-item-details h3 {
+  margin: 3px 0 7px;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.cart-item-details p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.cart-item > strong {
+  padding-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.quantity {
+  width: fit-content;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+}
+
+.quantity button {
+  width: 29px;
+  height: 27px;
+  border: 0;
+  background: transparent;
+}
+
+.quantity span {
+  min-width: 20px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.cart-summary {
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.cart-total strong {
+  font-weight: 600;
+}
+
+.checkout-button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.cart-summary .demo-note {
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 950px) {
+  .header {
+    padding-inline: 4%;
+    gap: 14px;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .nav {
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 9px;
+  }
+
+  .hero {
+    min-height: 510px;
+  }
+}
+
+@media (max-width: 700px) {
+  .announcement {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .header {
+    position: relative;
+    min-height: 76px;
+    grid-template-columns: 35px 1fr 55px;
+    gap: 10px;
+    padding: 12px 5%;
+  }
+
+  .menu-toggle {
+    display: block;
+    justify-self: start;
+  }
+
+  .brand {
+    justify-self: center;
+    align-items: center;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .brand span {
+    font-size: 8px;
+    letter-spacing: 3.4px;
+  }
+
+  .brand small {
+    font-size: 7px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 5% 15px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav.nav-open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 10px;
+  }
+
+  .bag-button {
+    font-size: 9px;
+  }
+
+  .hero {
+    height: 590px;
+    min-height: 0;
+    max-height: 680px;
+    align-items: end;
+  }
+
+  .hero-image {
+    object-position: 58% center;
+  }
+
+  .hero-shade {
+    background: linear-gradient(
+      0deg,
+      rgba(24, 21, 18, .78),
+      rgba(24, 21, 18, .1)
+    );
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 0 7% 75px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 49px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  }
+
+  .hero-description {
+    max-width: 320px;
+    font-size: 11px;
+  }
+
+  .hero-index {
+    right: 7%;
+    bottom: 23px;
+    font-size: 8px;
+  }
+
+  .section-wrap {
+    width: 88%;
+  }
+
+  .intro {
+    padding: 68px 0;
+  }
+
+  .intro h2 {
+    font-size: 33px;
+  }
+
+  .collection {
+    padding-bottom: 65px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .section-heading h2 {
+    font-size: 40px;
+  }
+
+  .collection-note {
+    margin: 0;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 27px 13px;
+  }
+
+  .product-label {
+    top: 8px;
+    left: 8px;
+    padding: 6px;
+    font-size: 7px;
+  }
+
+  .quick-add {
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    width: calc(100% - 14px);
+    padding: 12px 4px;
+    font-size: 8px;
+  }
+
+  .product-info {
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 11px;
+  }
+
+  .product-info h3 {
+    font-size: 15px;
+  }
+
+  .product-info strong {
+    font-size: 11px;
+  }
+
+  .brand-banner {
+    padding: 65px 18px;
+  }
+
+  .newsletter {
+    padding: 65px 12px;
+  }
+
+  .newsletter h2 {
+    font-size: 31px;
+  }
+
+  .footer-links {
+    gap: 19px;
+  }
+
+  .cart-panel {
+    padding: 22px 18px;
+  }
+
+  .cart-item {
+    grid-template-columns: 65px 1fr auto;
+    gap: 10px;
+  }
+
+  .cart-item > img {
+    width: 65px;
+    height: 85px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+.categories {
+  padding: 70px 0;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.category-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: #e9dfd2;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(30, 20, 17, 0.8),
+    transparent 70%
+  );
+}
+
+.category-copy {
+  position: absolute;
+  right: 12px;
+  bottom: 22px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-copy small {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.category-copy strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(18px, 2vw, 27px);
+  font-weight: 400;
+}
+
+.category-copy > span {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* KRIVE FASHIONS — warm luxury atmosphere */
+
+body {
+  background: #f7f3ec;
+}
+
+#root {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      ellipse at 8% 18%,
+      rgba(207, 184, 143, 0.13),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 92% 52%,
+      rgba(226, 211, 185, 0.18),
+      transparent 32%
+    ),
+    #f7f3ec;
+}
+
+/* Intro / brand story */
+.brand-intro,
+.intro-section {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(236, 226, 208, 0.62),
+      rgba(250, 247, 241, 0.94),
+      rgba(231, 217, 194, 0.45)
+    );
+  position: relative;
+}
+
+/* Category and collection sections */
+.categories-section,
+.category-section {
+  background: transparent;
+}
+
+.collection-section,
+.product-section,
+#collection {
+  background: rgba(250, 247, 241, 0.72);
+}
+
+/* Refined section separators */
+.brand-intro,
+.intro-section,
+.categories-section,
+.category-section,
+.collection-section,
+.product-section {
+  border-bottom: 1px solid rgba(174, 145, 99, 0.14);
+}
+
+/* Softer, more premium product cards */
+.product-card {
+  background: #fcfaf6;
+  border: 1px solid rgba(174, 145, 99, 0.12);
+  box-shadow: 0 8px 28px rgba(67, 52, 33, 0.035);
+  transition:
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 16px 38px rgba(67, 52, 33, 0.10);
+  transform: translateY(-3px);
+}
+
+/* Elegant gold accents */
+.product-card .product-category,
+.section-eyebrow,
+.eyebrow {
+  color: #a58a5b;
+}
+
+/* Keep mobile layouts comfortable */
+@media (max-width: 700px) {
+  .product-card:hover {
+    transform: none;
+  }
+}
+
+/* KRIVE FASHIONS — visible champagne luxury background */
+
+html,
+body,
+#root {
+  background-color: #eee5d6;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 10% 15%, #e2d3bb 0%, transparent 38%),
+    radial-gradient(ellipse at 90% 60%, #e9dcc8 0%, transparent 42%),
+    linear-gradient(135deg, #f0e8dc 0%, #e8dcc9 50%, #f5eee3 100%);
+  background-attachment: fixed;
+}
+
+/* Make the main page sections transparent so the background shows through */
+main {
+  background: transparent !important;
+}
+
+.brand-intro,
+.intro-section,
+.categories-section,
+.category-section,
+.collection-section,
+.product-section,
+#collection {
+  background-color: transparent;
+}
+
+/* Give the introduction a gentle champagne panel */
+.brand-intro,
+.intro-section {
+  background: linear-gradient(
+    135deg,
+    rgba(222, 205, 176, 0.42),
+    rgba(248, 242, 232, 0.72)
+  );
+}
+
+/* Keep product cards crisp against the warmer background */
+.product-card {
+  background: #faf7f1;
+  border-color: rgba(155, 124, 78, 0.2);
+  box-shadow: 0 8px 24px rgba(75, 55, 30, 0.07);
+}
+
+/* KRIVE gender switch */
+.gender-switch {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #eee7dc;
+}
+
+.gender-option {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.gender-option.active {
+  background: var(--ink);
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .gender-switch {
+    gap: 1px;
+    padding: 3px;
+  }
+
+  .gender-option {
+    padding: 9px 8px;
+    font-size: 8px;
+  }
+}
+
+/* =========================================
+   KRIVE FASHIONS — DECORATIVE BACKGROUNDS
+   ========================================= */
+
+/* WOMEN: heritage floral luxury */
+main {
+  background-color: #f5eee1;
+  background-image:
+    url("https://www.transparenttextures.com/patterns/cream-paper.png"),
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(190, 145, 85, 0.13),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #fbf5e9 0%,
+      #eee1ca 50%,
+      #faf4e9 100%
+    );
+  background-attachment: fixed;
+}
+
+/* Elegant floral details around the category section */
+.categories {
+  position: relative;
+  isolation: isolate;
+  background-color: transparent;
+  background-image:
+    radial-gradient(
+      ellipse at left center,
+      rgba(188, 143, 83, 0.13),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at right center,
+      rgba(188, 143, 83, 0.10),
+      transparent 45%
+    );
+}
+
+/* Warm, premium product cards */
+.product-card {
+  border: 1px solid rgba(157, 119, 72, 0.22);
+  box-shadow: 0 8px 24px rgba(75, 55, 30, 0.07);
+}
+
+/* MEN: charcoal streetwear aesthetic */
+body.men-theme main {
+  background-color: #171717;
+  background-image:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(255, 255, 255, 0.055),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #202020 0%,
+      #111111 55%,
+      #252525 100%
+    );
+  color: #f5f5f5;
+}
+
+body.men-theme .intro,
+body.men-theme .categories,
+body.men-theme .collection {
+  background-color: transparent;
+  color: #f5f5f5;
+}
+
+body.men-theme .collection-note,
+body.men-theme .intro p {
+  color: #c4c4c4;
+}
+
+body.men-theme .product-card {
+  background: #242424;
+  color: #f5f5f5;
+  border-color: #393939;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Keep the design comfortable on mobile */
+@media (max-width: 700px) {
+  main {
+    background-attachment: scroll;
+  }
+}
+
+
+/* KRIVE MEN — DARK STREETWEAR THEME */
+body.men-theme main {
+  background-color: #171717;
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(255,255,255,0.05), transparent 35%),
+    linear-gradient(135deg, #202020 0%, #111111 55%, #252525 100%);
+  color: #f5f5f5;
+}
+
+body.men-theme .intro,
+body.men-theme .categories,
+body.men-theme .collection {
+  background: transparent !important;
+  color: #f5f5f5;
+}
+
+body.men-theme .intro h2,
+body.men-theme .categories h2,
+body.men-theme .collection h2 {
+  color: #f5f5f5;
+}
+
+body.men-theme .intro p,
+body.men-theme .collection-note {
+  color: #c4c4c4;
+}
+
+body.men-theme .product-card {
+  background: #242424;
+  color: #f5f5f5;
+  border-color: #393939;
+}
+
+body.men-theme .product-card h3,
+body.men-theme .product-card p {
+  color: #f5f5f5;
+}
+
+/* KRIVE — MEN DARK THEME FIX */
+body.men-theme main {
+  background: #171717 !important;
+  color: #f5f5f5;
+}
+
+body.men-theme main section:not(.hero) {
+  background-color: transparent !important;
+  color: #f5f5f5;
+}
+
+body.men-theme main h1,
+body.men-theme main h2,
+body.men-theme main h3 {
+  color: #f5f5f5;
+}
+
+body.men-theme main p {
+  color: #c4c4c4;
+}
+
+body.men-theme main .eyebrow {
+  color: #c5a779;
+}
+
+body.men-theme main .collection-note {
+  color: #bdbdbd;
+}
+
+body.men-theme main .product-card {
+  background: #242424;
+  color: #f5f5f5;
+  border-color: #393939;
+}
+
+body.men-theme main .product-card h3,
+body.men-theme main .product-card p {
+  color: #f5f5f5;
+}
+
+/* ===== KRIVE MEN: PREMIUM DARK UI ===== */
+
+body.men-theme main {
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(194, 151, 91, 0.09), transparent 36%),
+    radial-gradient(ellipse at 90% 70%, rgba(255, 255, 255, 0.035), transparent 35%),
+    linear-gradient(135deg, #171717, #101010 55%, #1c1c1c) !important;
+  background-attachment: fixed;
+  color: #f5f1e9;
+}
+
+body.men-theme main section:not(.hero) {
+  background-color: transparent !important;
+  color: #f5f1e9;
+}
+
+body.men-theme .intro,
+body.men-theme .categories,
+body.men-theme .collection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+body.men-theme .eyebrow {
+  color: #c7a878;
+  letter-spacing: 3px;
+}
+
+body.men-theme main h1,
+body.men-theme main h2,
+body.men-theme main h3 {
+  color: #f5f1e9;
+}
+
+body.men-theme main p {
+  color: #bdb8af;
+}
+
+body.men-theme .category-grid {
+  gap: 18px;
+}
+
+body.men-theme .category-card {
+  border: 1px solid rgba(210, 177, 127, 0.18);
+  overflow: hidden;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+body.men-theme .category-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(210, 177, 127, 0.65);
+}
+
+body.men-theme .product-grid {
+  gap: 22px;
+}
+
+body.men-theme .product-card {
+  background: linear-gradient(145deg, #262626, #1b1b1b) !important;
+  color: #f5f1e9;
+  border: 1px solid #38352f;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+body.men-theme .product-card:hover {
+  transform: translateY(-5px);
+  border-color: #9d8055;
+}
+
+body.men-theme .product-card img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+body.men-theme .product-card h3,
+body.men-theme .product-card p {
+  color: #f5f1e9;
+}
+
+body.men-theme .product-card button {
+  transition: background 180ms ease, color 180ms ease;
+}
+
+body.men-theme .product-card button:hover {
+  background: #d8b783;
+  color: #171717;
+}
+
+body.men-theme .category-filter button,
+body.men-theme .filters button {
+  border-color: #49443b;
+  color: #ded7ca;
+}
+
+body.men-theme .category-filter button.active,
+body.men-theme .filters button.active {
+  background: #d8b783;
+  color: #171717;
+  border-color: #d8b783;
+}
+
+body.men-theme .collection-note {
+  color: #aaa49a;
+}
+
+@media (max-width: 700px) {
+  body.men-theme .intro,
+  body.men-theme .categories,
+  body.men-theme .collection {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  body.men-theme .product-grid {
+    gap: 12px;
+  }
+}
+
+/* ===== KRIVE WOMEN — HERITAGE LUXURY THEME ===== */
+
+body:not(.men-theme) main {
+  background-color: #f6ecdc !important;
+  background-image:
+    radial-gradient(ellipse at 5% 12%, rgba(191, 145, 85, 0.16), transparent 30%),
+    radial-gradient(ellipse at 95% 45%, rgba(190, 139, 76, 0.12), transparent 32%),
+    linear-gradient(135deg, #fff8ed 0%, #f4e5d0 52%, #fbf2e5 100%);
+  color: #382819;
+}
+
+/* Elegant section backgrounds */
+body:not(.men-theme) .intro,
+body:not(.men-theme) .categories,
+body:not(.men-theme) .collection {
+  background-color: transparent !important;
+  color: #382819;
+}
+
+/* Refined typography */
+body:not(.men-theme) main h1,
+body:not(.men-theme) main h2,
+body:not(.men-theme) main h3 {
+  color: #382819;
+}
+
+body:not(.men-theme) main p {
+  color: #78624b;
+}
+
+body:not(.men-theme) .eyebrow {
+  color: #9c7040;
+  letter-spacing: 3px;
+}
+
+/* Warm, elegant product cards */
+body:not(.men-theme) .product-card {
+  background: linear-gradient(145deg, #fffaf2, #f3e4d0) !important;
+  color: #382819;
+  border: 1px solid rgba(159, 113, 61, 0.22);
+  border-radius: 3px;
+  box-shadow: 0 10px 28px rgba(88, 58, 28, 0.09);
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+body:not(.men-theme) .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(88, 58, 28, 0.15);
+}
+
+body:not(.men-theme) .product-card h3,
+body:not(.men-theme) .product-card p {
+  color: #382819;
+}
+
+/* Gold-toned category cards */
+body:not(.men-theme) .category-card {
+  border: 1px solid rgba(159, 113, 61, 0.2);
+  box-shadow: 0 8px 22px rgba(88, 58, 28, 0.07);
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+body:not(.men-theme) .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(88, 58, 28, 0.13);
+}
+
+/* Warm filter buttons */
+body:not(.men-theme) .collection button,
+body:not(.men-theme) .categories button {
+  border-color: rgba(159, 113, 61, 0.25);
+}
+
+body:not(.men-theme) .collection button.active,
+body:not(.men-theme) .categories button.active {
+  background: #382819;
+  color: #fff7eb;
+  border-color: #382819;
+}
+
+/* Elegant page details */
+body:not(.men-theme) .collection-note {
+  color: #8b755d;
+}
+
+@media (max-width: 700px) {
+  body:not(.men-theme) .product-card {
+    box-shadow: 0 5px 16px rgba(88, 58, 28, 0.08);
+  }
+}
+
+/* WOMEN LUXURY EDITORIAL LAYOUT */
+body:not(.men-theme) .hero {
+  width: 50%;
+  min-height: 490px;
+  height: 490px;
+  max-height: 490px;
+  display: flex;
+  align-items: center;
+}
+
+body:not(.men-theme) .hero-content {
+  width: min(440px, 62%);
+  padding: 35px 0 35px 12%;
+}
+
+body:not(.men-theme) .hero h1 {
+  font-size: clamp(34px, 3.1vw, 54px);
+  line-height: 1.04;
+  max-width: 440px;
+}
+
+body:not(.men-theme) .hero-description {
+  max-width: 370px;
+  line-height: 1.7;
+}
+
+body:not(.men-theme) .intro {
+  display: none;
+}
+
+body:not(.men-theme) .categories {
+  margin-top: -490px;
+  margin-left: 50%;
+  width: 50%;
+  min-height: 490px;
+  padding: 45px 4% 35px;
+  box-sizing: border-box;
+}
+
+body:not(.men-theme) .categories .category-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+body:not(.men-theme) .categories .category-card {
+  min-width: 0;
+}
+
+@media (min-width: 1000px) {
+  body:not(.men-theme) main {
+    display: flow-root;
+  }
+}
+
+@media (max-width: 999px) {
+  body:not(.men-theme) .hero {
+    width: 100%;
+    height: 540px;
+    max-height: none;
+  }
+
+  body:not(.men-theme) .categories {
+    margin: 0;
+    width: 100%;
+    min-height: auto;
+  }
+
+  body:not(.men-theme) .categories .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+body:not(.men-theme) .hero {
+  width: 100%;
+  min-height: 650px;
+  height: 85vh;
+  max-height: 900px;
+  display: flex;
+  align-items: center;
+}
+
+body:not(.men-theme) .hero-content {
+  width: min(500px, 80%);
+  padding: 40px 0 40px 8%;
+}
+
+body:not(.men-theme) .hero h1 {
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.04;
+  max-width: 600px;
+}
+
+body:not(.men-theme) .hero-description {
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+/* Put the categories section below the full-width banner */
+body:not(.men-theme) .categories {
+  margin: 0;
+  width: 100%;
+  min-height: auto;
+  padding: 60px 6%;
+  box-sizing: border-box;
+}
+
+body:not(.men-theme) .categories .category-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body:not(.men-theme) .intro {
+  display: block;
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  body:not(.men-theme) .hero {
+    min-height: 580px;
+    height: 75vh;
+  }
+
+  body:not(.men-theme) .hero-content {
+    width: 88%;
+    padding-left: 7%;
+  }
+
+  body:not(.men-theme) .categories .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Fix Women hero text contrast */
+body:not(.men-theme) .hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+body:not(.men-theme) .hero .eyebrow {
+  color: #f4d6a6 !important;
+}
+
+body:not(.men-theme) .hero h1 {
+  color: #fff8ed !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
+}
+
+body:not(.men-theme) .hero .hero-description {
+  color: #fff4e5 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+body:not(.men-theme) .hero .hero-shade {
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(30, 20, 12, 0.72) 0%,
+    rgba(40, 27, 17, 0.48) 38%,
+    rgba(40, 27, 17, 0.08) 75%
+  ) !important;
+}
+
+body:not(.men-theme) .hero .hero-index {
+  color: #fff0d8 !important;
+  z-index: 2;
+}
+
+/* ===== KRIVE WOMEN: CHAMPAGNE + GOLD FLORAL DESIGN ===== */
+
+body:not(.men-theme) main {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(211, 170, 112, 0.20), transparent 32%),
+    radial-gradient(ellipse at 85% 65%, rgba(198, 148, 87, 0.15), transparent 35%),
+    linear-gradient(135deg, #fff8ed 0%, #f5e8d5 50%, #fff5e7 100%) !important;
+  color: #382819;
+}
+
+/* Gold botanical decorations along both edges.
+   Add a transparent floral image at public/images/floral-overlay.png */
+body:not(.men-theme) main::before,
+body:not(.men-theme) main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(65px, 12vw, 175px);
+  background-image: url("/images/floral-overlay.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  opacity: 0.78;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body:not(.men-theme) main::before {
+  left: 0;
+  background-position: top left;
+}
+
+body:not(.men-theme) main::after {
+  right: 0;
+  background-position: top right;
+  transform: scaleX(-1);
+}
+
+/* Keep actual page content above decorative backgrounds */
+body:not(.men-theme) main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Elegant headings and gold accents */
+body:not(.men-theme) main h1,
+body:not(.men-theme) main h2,
+body:not(.men-theme) main h3 {
+  color: #392919;
+}
+
+body:not(.men-theme) main .eyebrow {
+  color: #98652f;
+  letter-spacing: 2.5px;
+}
+
+/* Premium product cards */
+body:not(.men-theme) .product-card {
+  background: linear-gradient(145deg, #fffaf2, #f6e8d5) !important;
+  border: 1px solid rgba(166, 119, 62, 0.22);
+  border-radius: 3px;
+  box-shadow: 0 8px 24px rgba(88, 58, 28, 0.09);
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+body:not(.men-theme) .product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 32px rgba(88, 58, 28, 0.16);
+}
+
+/* Gold outlines on category cards */
+body:not(.men-theme) .category-card {
+  border: 1px solid rgba(166, 119, 62, 0.25);
+  box-shadow: 0 8px 22px rgba(88, 58, 28, 0.08);
+  overflow: hidden;
+}
+
+/* Dark heritage footer */
+
+/* Dark heritage footer */
+body:not(.men-theme) footer {
+  background:
+    radial-gradient(ellipse at 20% 15%, rgba(210, 169, 112, 0.12), transparent 35%),
+    radial-gradient(ellipse at 80% 70%, rgba(196, 151, 91, 0.10), transparent 38%),
+    linear-gradient(135deg, #2b291f 0%, #171c15 48%, #2b2418 100%) !important;
+  color: #f7e8c9;
+  border-top: 1px solid rgba(195, 151, 82, 0.45);
+}
+
+
+@media (max-width: 700px) {
+  body:not(.men-theme) main::before,
+  body:not(.men-theme) main::after {
+    width: clamp(45px, 8vw, 115px);
+background-size: 100% 700px;
+opacity: 0.45;
+  }
+
+  body:not(.men-theme) .product-card {
+    box-shadow: 0 5px 15px rgba(88, 58, 28, 0.08);
+  }
+}
+/* KRIVE WOMEN — LUXURY SPLIT LAYOUT */
+
+.women-storefront {
+  background-color: #f8efe0;
+  background-image:
+    url("/images/floral-overlay.png"),
+    linear-gradient(135deg, #fff8ed, #f0dfc5);
+  background-repeat: repeat-y, no-repeat;
+  background-position: left top, center;
+  background-size: 150px auto, cover;
+}
+
+.women-top-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: stretch;
+  gap: 0;
+}
+
+.women-top-layout > .hero {
+  height: 100%;
+  min-height: 600px;
+  max-height: 720px;
+}
+
+.women-top-layout > .intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 7%;
+  margin: 0;
+}
+
+.women-top-layout > .categories {
+  padding: 45px 5%;
+  margin: 0;
+  min-width: 0;
+}
+
+.women-top-layout > .categories .category-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.women-top-layout > .categories .section-heading h2 {
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+@media (max-width: 900px) {
+  .women-top-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .women-top-layout > .hero {
+    min-height: 540px;
+  }
+}
+/* FIX: Women's layout overflow and collapse */
+.women-top-layout {
+  display: block !important;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.women-top-layout > .hero {
+  width: 100%;
+  min-height: 600px;
+  height: min(68vw, 690px);
+  max-height: 760px;
+}
+
+.women-top-layout > .intro {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.women-top-layout > .categories {
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 50px 24px;
+}
+
+.women-top-layout > .categories .category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.women-top-layout .category-card {
+  min-width: 0;
+}
+
+@media (max-width: 800px) {
+  .women-top-layout > .categories .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* Center the women's category section */
+body:not(.men-theme) .categories {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 55px 40px;
+  box-sizing: border-box;
+}
+
+/* Center heading and category cards */
+body:not(.men-theme) .categories .section-heading {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 28px;
+}
+
+/* Four equal cards, centered */
+body:not(.men-theme) .categories .category-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Keep all category cards consistent */
+body:not(.men-theme) .categories .category-card {
+  width: 100%;
+  min-width: 0;
+  height: 340px;
+  box-sizing: border-box;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  body:not(.men-theme) .categories .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  body:not(.men-theme) .categories {
+    padding: 35px 18px;
+  }
+
+  body:not(.men-theme) .categories .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Refined floral side decorations — Women theme */
+body:not(.men-theme) .women-storefront {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+body:not(.men-theme) .women-storefront::before,
+body:not(.men-theme) .women-storefront::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(40px, 6vw, 85px);
+  background-image: url("/images/floral-overlay.png");
+ background-repeat: no-repeat;
+ background-size: auto 100%;
+  opacity: 0.42;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body:not(.men-theme) .women-storefront::after {
+  right: 0;
+  background-position: right top;
+}
+
+body:not(.men-theme) .women-storefront::after {
+  right: 0;
+  background-position: right top;
+  transform: scaleX(-1);
+}
+
+/* Keep website content above the decoration */
+body:not(.men-theme) .women-storefront > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent decorations from covering content on small screens */
+@media (max-width: 600px) {
+  body:not(.men-theme) .women-storefront::before,
+  body:not(.men-theme) .women-storefront::after {
+    width: 28px;
+    opacity: 0.22;
+  }
+}/* Auto-adjust floral background */
+/* Women floral background */
+body:not(.men-theme) .women-storefront {
+  position: relative;
+  isolation: isolate;
+  background-color: #fbf3e5;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100%;
+}
+
+/* Mobile background */
+@media (max-width: 768px) {
+  body:not(.men-theme) .women-storefront {
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  body:not(.men-theme) .women-storefront {
+    background-size: auto 100%;
+    background-position: center top;
+  }
+}
+/* MOBILE HEADER FIX: Keeps Brand, Women/Men Toggle, Orders, Sign-In, and Bag visible on phones */
+@media (max-width: 768px) {
+  .topbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  .brand {
+    margin-right: auto !important;
+  }
+
+  .brand-title {
+    font-size: 20px !important;
+    letter-spacing: 3px !important;
+  }
+
+  .brand-subtitle,
+  .brand-tagline {
+    display: none !important;
+  }
+
+  .topbar-actions,
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    padding-top: 6px !important;
+    border-top: 1px solid rgba(165, 139, 98, 0.2) !important;
+  }
+
+  .department-switch button,
+  .bag-button,
+  .topbar-actions button {
+    font-size: 10px !important;
+    padding: 6px 10px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+}
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE FIX (Works automatically without editing App.jsx)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Top Announcement Bar */
+  .announcement-bar {
+    font-size: 9px !important;
+    letter-spacing: 1.2px !important;
+    padding: 8px 10px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* 2. Header: Stack into 2 clean rows so NO buttons get cut off */
+  header,
+  .site-header,
+  .topbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  /* Target the right-side button wrapper (line 446's div inside <header>) */
+  header > div:last-child,
+  .site-header > div:last-child,
+  .topbar > div:last-child {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    padding-top: 8px !important;
+    margin-top: 4px !important;
+    border-top: 1px solid rgba(165, 139, 98, 0.22) !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+
+  header > div:last-child::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Make WOMEN/MEN, ORDERS, Google Sign-In, and BAG fit side-by-side on mobile */
+  header > div:last-child button,
+  .bag-button {
+    padding: 6px 9px !important;
+    font-size: 9.5px !important;
+    letter-spacing: 0.8px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 3. Hero Banner: Clean mobile typography */
+  .hero {
+    min-height: 450px !important;
+    max-height: 520px !important;
+  }
+
+  .hero h1 {
+    font-size: 32px !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-lead {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* 4. Product Grid: 2 Columns on Mobile + Always-Visible "+ ADD TO BAG" */
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .quick-add {
+    opacity: 1 !important;
+    transform: none !important;
+    position: static !important;
+    width: 100% !important;
+    padding: 9px 6px !important;
+    font-size: 9px !important;
+  }
+
+  .product-info {
+    padding: 10px 4px 6px !important;
+  }
+
+  .product-info h3 {
+    font-size: 13.5px !important;
+  }
+
+  /* 5. Full-width Cart & Order Drawers on Mobile */
+  .cart-drawer {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 18px 14px !important;
+  }
+}
+/* Force product cards and Add to Bag button to display fully on Desktop & Mobile */
+.product-card,
+.carousel-track,
+.carousel-item {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.product-card button {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  display: block !important;
+}
+/* Keep Bag & Orders drawers above the sticky header so the Close button is always visible */
+.drawer-backdrop,
+.cart-backdrop,
+.bag-backdrop {
+  z-index: 3000 !important;
+}
+
+.drawer,
+.cart-drawer,
+.bag-drawer,
+aside {
+  z-index: 3001 !important;
+}
+/* Keep cart-panel above the sticky header on mobile & desktop */
+.cart-backdrop {
+  z-index: 9998 !important;
+}
+
+.cart-panel {
+  z-index: 9999 !important;
+  padding-top: 20px !important;
+}

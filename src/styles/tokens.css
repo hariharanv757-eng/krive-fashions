@@ -1,0 +1,43 @@
+/* KRIVE FASHIONS — design tokens (Step 0)
+   Women: champagne / ivory / beige / gold.   Men: charcoal / black / brushed metal.
+   These are additive: existing App.css rules keep working; new components read these. */
+
+:root {
+  --kf-ivory: #fbf7ef;
+  --kf-champagne: #efe3cd;
+  --kf-beige: #e2d2b5;
+  --kf-gold: #b8975a;
+  --kf-gold-bright: #dcc08a;
+  --kf-gold-deep: #8a6d38;
+  --kf-ink: #2a2520;
+  --kf-ink-soft: #5f574b;
+
+  /* surfaces used by the new components */
+  --kf-surface: #fcfaf5;
+  --kf-surface-glass: rgba(252, 249, 242, 0.72);
+  --kf-hairline: rgba(184, 151, 90, 0.28);
+  --kf-text: var(--kf-ink);
+  --kf-text-muted: var(--kf-ink-soft);
+  --kf-accent: var(--kf-gold);
+  --kf-accent-bright: var(--kf-gold-bright);
+  --kf-shadow-sm: 0 6px 18px rgba(70, 52, 28, 0.08);
+  --kf-shadow-md: 0 18px 44px rgba(70, 52, 28, 0.16);
+  --kf-shadow-lg: 0 34px 80px rgba(70, 52, 28, 0.24);
+
+  --kf-display: "Playfair Display", Georgia, serif;
+  --kf-ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --kf-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.men-theme {
+  --kf-surface: #1d1d1f;
+  --kf-surface-glass: rgba(26, 26, 28, 0.74);
+  --kf-hairline: rgba(200, 204, 212, 0.2);
+  --kf-text: #f3f0ea;
+  --kf-text-muted: #b5b1a8;
+  --kf-accent: #c9ccd3;          /* brushed steel */
+  --kf-accent-bright: #e8d6b0;   /* warm metal highlight */
+  --kf-shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.32);
+  --kf-shadow-md: 0 18px 44px rgba(0, 0, 0, 0.45);
+  --kf-shadow-lg: 0 34px 80px rgba(0, 0, 0, 0.6);
+}

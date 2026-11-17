@@ -1,0 +1,229 @@
+/* KRIVE FASHIONS — admin premium layer (loads after AdminDashboard.css).
+   Purely additive: it restyles and animates existing class names. */
+
+@keyframes kfa-rise {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes kfa-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes kfa-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes kfa-modal-in {
+  from { opacity: 0; transform: perspective(1200px) translate3d(0, 34px, -60px) rotateX(9deg) scale(0.96); }
+  to   { opacity: 1; transform: perspective(1200px) none; }
+}
+@keyframes kfa-modal-out {
+  from { opacity: 1; transform: perspective(1200px) none; }
+  to   { opacity: 0; transform: perspective(1200px) translate3d(0, 22px, -40px) rotateX(6deg) scale(0.97); }
+}
+@keyframes kfa-toast {
+  0%   { opacity: 0; transform: translate3d(0, 18px, 0); }
+  9%   { opacity: 1; transform: none; }
+  90%  { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translate3d(0, 10px, 0); }
+}
+@keyframes kfa-sheen { 0%, 60% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
+
+/* ───────── fix: banner headline was dark text on a dark panel ───────── */
+/* Root cause: App.css (storefront) styles every `main h2` with a dark colour and adds floral
+   `main::before/::after` decorations. The admin also renders a <main>, so both leaked in.
+   These selectors out-rank them for the admin only. */
+body:not(.men-theme) .admin-main .welcome-banner h2,
+.welcome-banner h2 { color: #fffaf0; }
+body:not(.men-theme) .admin-main::before,
+body:not(.men-theme) .admin-main::after { content: none; display: none; }
+.welcome-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 241, 207, 0.07) 50%, transparent 60%);
+  transform: translateX(-120%);
+  animation: kfa-sheen 7s ease-in-out 1.2s infinite;
+}
+
+/* ───────── sidebar ───────── */
+.admin-sidebar {
+  box-shadow: inset -1px 0 0 rgba(217, 187, 130, 0.14), 14px 0 50px rgba(20, 16, 8, 0.12);
+}
+.nav-item {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.45s cubic-bezier(0.22, 0.8, 0.24, 1), color 0.35s ease,
+    transform 0.45s cubic-bezier(0.22, 0.8, 0.24, 1), border-color 0.45s;
+}
+.nav-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #fff1cf, #d9bb82, #9c7a3e);
+  box-shadow: 0 0 12px rgba(217, 187, 130, 0.8);
+  transform: scaleY(0);
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+.nav-item.active::before { transform: scaleY(1); }
+.nav-item:hover:not(.active) { transform: translateX(4px); background: rgba(255, 255, 255, 0.045); color: #fffaf0; }
+.nav-item .nav-icon { transition: transform 0.5s cubic-bezier(0.3, 1.5, 0.5, 1), color 0.3s; }
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon { transform: scale(1.18); }
+.nav-item.active .nav-icon { filter: drop-shadow(0 0 6px rgba(217, 187, 130, 0.6)); }
+.nav-item:focus-visible { outline: 1px solid #d9bb82; outline-offset: -2px; }
+.nav-count { animation: kfa-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+
+/* ───────── page transition ───────── */
+.admin-page { animation: kfa-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+
+/* ───────── metric cards: 3D tilt, glare, count-up ───────── */
+.metric-card {
+  --kf-rx: 0deg;
+  --kf-ry: 0deg;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1000px) rotateX(var(--kf-rx)) rotateY(var(--kf-ry));
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+  will-change: transform;
+}
+.metric-card.is-tilting { transition: transform 0.12s linear, box-shadow 0.5s ease, border-color 0.5s ease; }
+.metric-card:hover {
+  border-color: rgba(184, 151, 90, 0.55);
+  box-shadow: 0 22px 50px rgba(70, 52, 28, 0.16);
+}
+.metric-card.is-clickable { cursor: pointer; }
+.metric-card.is-clickable:focus-visible { outline: 2px solid #b8975a; outline-offset: 2px; }
+.metric-card .metric-icon { transition: transform 0.6s cubic-bezier(0.3, 1.5, 0.5, 1), background 0.4s; }
+.metric-card:hover .metric-icon { transform: rotate(-8deg) scale(1.12); }
+.metric-value { font-variant-numeric: tabular-nums; }
+.metric-grid .metric-card { animation: kfa-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.metric-grid .metric-card:nth-child(2) { animation-delay: 0.07s; }
+.metric-grid .metric-card:nth-child(3) { animation-delay: 0.14s; }
+.metric-grid .metric-card:nth-child(4) { animation-delay: 0.21s; }
+
+.kf-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(360px circle at var(--kf-gx, 50%) var(--kf-gy, 40%), rgba(217, 187, 130, 0.26), transparent 60%);
+}
+.metric-card:hover .kf-glare,
+.apc:hover .kf-glare { opacity: 1; }
+
+/* ───────── tables, buttons ───────── */
+.product-table tbody tr { transition: background-color 0.35s ease; }
+.product-table tbody tr:hover { background: rgba(184, 151, 90, 0.07); }
+.product-table .product-image { transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.24, 1); }
+.product-table tbody tr:hover .product-image { transform: scale(1.08); }
+
+.admin-button { transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s cubic-bezier(0.22, 0.8, 0.24, 1), box-shadow 0.35s; }
+.admin-button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(40, 30, 14, 0.18); }
+.admin-button:active:not(:disabled) { transform: scale(0.98); }
+.admin-button:disabled { opacity: 0.55; cursor: not-allowed; }
+.icon-button { transition: background 0.3s, color 0.3s, transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1); }
+.icon-button:hover { transform: scale(1.12); }
+
+/* ───────── list / gallery toggle ───────── */
+.view-toggle { display: inline-flex; border: 1px solid #ddd3bf; background: #fffefa; flex-shrink: 0; }
+.view-toggle button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 16px;
+  min-height: 40px;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #6c6558;
+  cursor: pointer;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.view-toggle button.active { background: #292923; color: #fffaf0; }
+.view-toggle button:not(.active):hover { background: rgba(184, 151, 90, 0.12); }
+.view-toggle button:focus-visible { outline: 2px solid #b8975a; outline-offset: -2px; }
+
+.apc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 22px; }
+.apc {
+  --kf-rx: 0deg;
+  --kf-ry: 0deg;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e6dece;
+  background: #fffefa;
+  transform: perspective(1000px) rotateX(var(--kf-rx)) rotateY(var(--kf-ry));
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s;
+  animation: kfa-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  will-change: transform;
+}
+.apc.is-tilting { transition: transform 0.12s linear, box-shadow 0.5s ease, border-color 0.5s; }
+.apc:hover { border-color: rgba(184, 151, 90, 0.6); box-shadow: 0 24px 54px rgba(70, 52, 28, 0.18); }
+.apc-media { aspect-ratio: 3 / 4; overflow: hidden; background: #eee7da; }
+.apc .apc-media .product-image,
+.apc .apc-media .product-image-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.apc:hover .apc-media .product-image { transform: scale(1.07); }
+.apc-body { display: flex; justify-content: space-between; gap: 10px; padding: 14px 16px 6px; }
+.apc-body strong { display: block; font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: 16px; }
+.apc-body small { display: block; margin-top: 4px; color: #8f887a; font-size: 10px; }
+.apc-body b { font-weight: 600; font-size: 13px; white-space: nowrap; }
+.apc-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px 16px 16px; }
+.apc-foot .table-actions { margin-left: auto; }
+
+/* ───────── modal ───────── */
+.modal-backdrop { animation: kfa-fade 0.3s ease backwards; }
+.modal-backdrop.is-closing { animation: kfa-fade-out 0.26s ease forwards; }
+.product-modal {
+  width: min(100%, 690px);
+  animation: kfa-modal-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  transform-origin: 50% 100%;
+}
+.product-modal.is-closing { animation: kfa-modal-out 0.26s cubic-bezier(0.5, 0, 0.75, 0) forwards; }
+.product-form .kfu { color: #2a2520; }
+/* the hidden <input type=file> must not inherit the form's input styling */
+.product-form .kfu .kfu-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.admin-toast { animation: kfa-toast 3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@media (max-width: 760px) {
+  .filter-bar { flex-wrap: wrap; }
+  .view-toggle { width: 100%; }
+  .view-toggle button { flex: 1; }
+  .apc-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-banner::after,
+  .admin-page,
+  .metric-grid .metric-card,
+  .apc,
+  .modal-backdrop,
+  .product-modal,
+  .admin-toast { animation: none !important; }
+  .metric-card, .apc { transform: none !important; }
+}
+
+/* ───────── fix: storefront `.product-image { width:100% }` (App.css loads later) made every
+   table thumbnail 220px wide. Scoping to the admin shell restores the intended 47×58. ───────── */
+.admin-main .product-image,
+.admin-main .product-image-fallback {
+  width: 47px;
+  height: 58px;
+}
