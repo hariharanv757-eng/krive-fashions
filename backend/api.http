@@ -1,0 +1,83 @@
+### Ready-to-run requests for IntelliJ HTTP Client / VS Code "REST Client".
+### Start the API first (mvn spring-boot:run). In the default dev profile the admin API is open;
+### with require-admin-login=true add:  Authorization: Basic YWRtaW46Y2hhbmdlLW1l   (admin:change-me)
+
+@host = http://localhost:8080
+
+### ---- Storefront (public) ----
+GET {{host}}/api/products
+
+###
+GET {{host}}/api/products?department=Men&category=Hoodies
+
+###
+GET {{host}}/api/products/KF-001
+
+###
+GET {{host}}/api/categories
+
+### Checkout: prices are NOT sent; the server looks them up
+POST {{host}}/api/orders
+Content-Type: application/json
+
+{
+  "customer": { "name": "Ananya R.", "email": "ananya@example.com", "phone": "+91 98765 43210", "address": "12 MG Road, Madurai" },
+  "items": [ { "productId": "KF-003", "quantity": 1, "size": "M" } ]
+}
+
+### ---- Admin ----
+GET {{host}}/api/admin/stats
+
+###
+GET {{host}}/api/admin/products?q=&status=&sort=newest&page=0&size=20
+
+###
+POST {{host}}/api/admin/products
+Content-Type: application/json
+
+{ "name": "Ivory Anarkali", "category": "Salwar Suits", "price": 3499, "stock": 8,
+  "image": "/uploads/replace-me.jpg", "description": "Hand-finished festive wear", "status": "Published" }
+
+###
+PUT {{host}}/api/admin/products/KF-013
+Content-Type: application/json
+
+{ "name": "Ivory Anarkali", "category": "Salwar Suits", "price": 3299, "stock": 6, "status": "Published" }
+
+###
+PATCH {{host}}/api/admin/products/KF-013/stock
+Content-Type: application/json
+
+{ "stock": 20 }
+
+###
+DELETE {{host}}/api/admin/products/KF-013
+
+###
+GET {{host}}/api/admin/orders?status=Processing&page=0&size=20
+
+###
+GET {{host}}/api/admin/orders/ORD-1043
+
+###
+PATCH {{host}}/api/admin/orders/ORD-1043/status
+Content-Type: application/json
+
+{ "status": "Shipped" }
+
+### ---- Uploads ----
+POST {{host}}/api/uploads
+Content-Type: multipart/form-data; boundary=kfboundary
+
+--kfboundary
+Content-Disposition: form-data; name="file"; filename="photo.jpg"
+Content-Type: image/jpeg
+
+< ./photo.jpg
+--kfboundary--
+
+###
+GET {{host}}/api/auth/me
+
+###
+GET {{host}}/actuator/health

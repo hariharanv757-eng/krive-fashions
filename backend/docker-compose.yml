@@ -1,0 +1,41 @@
+# Production-style stack: PostgreSQL + the API.
+#   1. cp .env.example .env   and fill in real values
+#   2. docker compose up --build
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: krive
+      POSTGRES_USER: krive
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U krive -d krive"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/krive
+      DB_USER: krive
+      DB_PASSWORD: ${DB_PASSWORD}
+      KRIVE_ADMIN_USER: ${KRIVE_ADMIN_USER:-admin}
+      KRIVE_ADMIN_PASSWORD: ${KRIVE_ADMIN_PASSWORD:?set KRIVE_ADMIN_PASSWORD in .env}
+      KRIVE_CORS_ORIGINS: ${KRIVE_CORS_ORIGINS:?set KRIVE_CORS_ORIGINS in .env}
+      KRIVE_SEED_CATALOG: ${KRIVE_SEED_CATALOG:-false}
+    volumes:
+      - uploads:/app/uploads
+
+volumes:
+  dbdata:
+  uploads:

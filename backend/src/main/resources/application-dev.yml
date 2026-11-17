@@ -1,0 +1,14 @@
+# Development profile (the default). Zero setup: a file-based H2 database in ./data.
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/krive;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+
+krive:
+  security:
+    # DEV ONLY: the admin API is open so the existing admin dashboard works without a login screen.
+    # Set to true (and give the frontend a login) before exposing this anywhere. Prod always requires it.
+    require-admin-login: false
+  seed:
+    enabled: true           # load the 12 sample products on first start

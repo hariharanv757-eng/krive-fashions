@@ -1,0 +1,15 @@
+# Production profile: PostgreSQL, mandatory admin login, no sample data unless asked.
+spring:
+  datasource:
+    url: ${DB_URL}                  # e.g. jdbc:postgresql://db:5432/krive
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+krive:
+  security:
+    require-admin-login: true
+    admin-password: ${KRIVE_ADMIN_PASSWORD}    # no default: startup fails if it is missing or "change-me"
+  cors:
+    allowed-origins: ${KRIVE_CORS_ORIGINS}     # your storefront origin(s), comma separated
+  seed:
+    enabled: ${KRIVE_SEED_CATALOG:false}

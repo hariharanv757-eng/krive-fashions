@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: krive-fashions-api
+  profiles:
+    default: dev            # run with SPRING_PROFILES_ACTIVE=prod in production
+  jpa:
+    open-in-view: false     # DTOs are built inside service transactions
+    hibernate:
+      ddl-auto: update      # creates/extends tables; see README "Database" for stricter options
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 9MB
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+krive:
+  upload:
+    dir: ${KRIVE_UPLOAD_DIR:uploads}
+    max-bytes: 8388608      # 8 MB, must match the admin uploader's limit
+  security:
+    require-admin-login: true
+    admin-username: ${KRIVE_ADMIN_USER:admin}
+    admin-password: ${KRIVE_ADMIN_PASSWORD:change-me}
+  cors:
+    allowed-origins: ${KRIVE_CORS_ORIGINS:http://localhost:5173,http://127.0.0.1:5173}
+  seed:
+    enabled: false
